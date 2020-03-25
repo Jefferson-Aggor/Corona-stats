@@ -6,7 +6,8 @@ const ui = new UI();
 
 const totalUI = document.querySelector(".total");
 const loader = document.querySelector(".loader");
-const alert = document.querySelector("#alert");
+const alert = document.querySelector(".alert");
+const world = document.querySelector(".worldData");
 const countryInput = document.querySelector("#country");
 const submit = document.querySelector("#submit");
 const ctx = document.getElementById("myChart").getContext("2d");
@@ -22,28 +23,41 @@ function total() {
 }
 total();
 
+world.addEventListener("click", function() {
+    const totalData = coronaData
+        .getTotal()
+        .then(function(data) {
+            ui.showTotal(data);
+            loader.style.display = "none";
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
 submit.addEventListener("click", function(e) {
     e.preventDefault();
     loader.style.display = "block";
     totalUI.style.display = "none";
     const country = countryInput.value;
+    ui.clearData();
 
     if (countryInput.value === "") {
         // send an alert
         loader.style.display = "none";
-        console.log("input empty");
+
+        ui.showAlert("Input Empty", "alert-danger");
     } else {
         // display the stats
 
         const data = coronaData.getData(country).then(function(data) {
             if (!data.data.error) {
                 // show data
-
                 ui.showData(data.data, country);
                 console.log(data.data.confirmed.value);
 
                 const chart = new Chart(ctx, {
-                    type: "doughnut",
+                    type: "bar",
                     data: {
                         labels: ["Confirmed Cases", "Recovered", "Deaths"],
                         datasets: [{
@@ -73,7 +87,7 @@ submit.addEventListener("click", function(e) {
                 loader.style.display = "none";
             } else {
                 // show alert
-                ui.showAlert(data.data.error);
+                ui.showAlert(`${country} not found in Database`, "alert-danger");
                 loader.style.display = "none";
             }
         });

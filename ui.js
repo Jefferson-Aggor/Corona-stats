@@ -8,7 +8,6 @@ class UI {
     constructor() {
         this.output = document.querySelector(".output");
         this.total = document.querySelector(".total");
-        this.alert = document.getElementById("alert");
     }
     showTotal(info) {
         this.total.innerHTML = `
@@ -45,9 +44,24 @@ class UI {
        
         `;
     }
-    showAlert(err) {
-        this.alert.innerHTML = `
-            <div>${err.message}</div>
-        `;
+    showAlert(message, className) {
+        this.clearAlert();
+        // create a div
+        const div = document.createElement("div");
+        div.className = `alert  ${className}`;
+        div.appendChild(document.createTextNode(message));
+
+        const parent = document.querySelector(".parent");
+        const before = document.querySelector(".before");
+        parent.insertBefore(div, before);
+    }
+    clearAlert() {
+        const currentAlert = document.querySelector(".alert");
+        if (currentAlert) {
+            currentAlert.remove();
+        }
+    }
+    clearData() {
+        this.output.innerHTML = "";
     }
 }

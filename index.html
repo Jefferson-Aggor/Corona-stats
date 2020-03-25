@@ -13,9 +13,10 @@
 <body>
     <div class="navbar-fixed ">
         <nav class="blue">
-            <div class="container">
+            <div class="">
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo">Corona Stats</a>
+                    <a href="" class="worldData mx-3"><i class="fas fa-globe"></i></a>
                 </div>
             </div>
         </nav>
@@ -23,18 +24,18 @@
 
     <!-- search countries -->
 
-    <div class="card p-2 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="country" type="text" class="validate" class="capitalize" />
+    <div class="card bg-light">
+        <div class="container ">
+            <div class="row parent">
+                <div class="input-field col s12 before">
+                    <input id="country" type="text" class="capitalize" />
                     <label for="country">Enter Country</label>
                 </div>
             </div>
             <input type="submit" value="Search Country" class="btn btn-block btn-success" id="submit" />
         </div>
     </div>
-    <div class="container">
+    <div class="container ">
         <div class="my-2">
             <div class="loader" style="width: 50px;height: 50px;">
                 <img src="loader.gif" alt="" />
@@ -42,8 +43,8 @@
             <div class="total"></div>
             <div class="row">
                 <div class="col s12 m6 l6 output"></div>
-                <div class="col s12 m6 l6" style="height: 200;">
-                    <canvas id="myChart"></canvas>
+                <div class="col s12 m6 l6">
+                    <canvas id="myChart" width="400" height="300"></canvas>
                 </div>
             </div>
         </div>
