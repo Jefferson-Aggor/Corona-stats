@@ -13,8 +13,8 @@ class UI {
         this.total.innerHTML = `
        
         <div class="grid-3">
-        <div class=" card all-center" ><i class="fas fa-globe fa-3x"></i><h4 class="">${info.confirmed.value}</h4><p>Confirmed Cases Worldwide</p></div>
-        <div class=" card all-center" ><img src = "download.png" style='width:70px;height:70px;margin-top:10px'><h3>${info.recovered.value}</h3><p>Recovered Patients Worldwide</p></div>
+        <div class=" card all-center" ><i class="fas fa-globe fa-3x"></i><h3 class="">${info.confirmed.value}</h3><p>Confirmed Cases Worldwide</p></div>
+        <div class=" card all-center" ><img src = "download.png" style='width:65px;height:65px;margin-top:7px'><h3>${info.recovered.value}</h3><p>Recovered Patients Worldwide</p></div>
         <div class=" card all-center" ><i class="fas fa-sad-tear fa-3x"></i><h3>${info.deaths.value}</h3> <p>Deaths Recorded Worldwide</p></div>
         </div>
         `;
