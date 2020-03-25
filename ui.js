@@ -48,7 +48,7 @@ class UI {
         this.clearAlert();
         // create a div
         const div = document.createElement("div");
-        div.className = `alert  ${className}`;
+        div.classList = `alert  ${className}`;
         div.appendChild(document.createTextNode(message));
 
         const parent = document.querySelector(".parent");

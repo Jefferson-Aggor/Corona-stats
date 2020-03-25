@@ -6,13 +6,20 @@ const ui = new UI();
 
 const totalUI = document.querySelector(".total");
 const loader = document.querySelector(".loader");
-const alert = document.querySelector(".alert");
 const world = document.querySelector(".worldData");
 const countryInput = document.querySelector("#country");
 const submit = document.querySelector("#submit");
 const ctx = document.getElementById("myChart").getContext("2d");
 
 loader.style.display = "none";
+
+const alert = document.querySelectorAll(".alert-danger");
+
+alert.forEach(alert => {
+    setTimeout(() => {
+        alert.remove();
+    }, 4000);
+});
 
 function total() {
     loader.style.display = "block";
@@ -38,14 +45,12 @@ world.addEventListener("click", function() {
 submit.addEventListener("click", function(e) {
     e.preventDefault();
     loader.style.display = "block";
-    totalUI.style.display = "none";
+
     const country = countryInput.value;
-    ui.clearData();
 
     if (countryInput.value === "") {
         // send an alert
         loader.style.display = "none";
-
         ui.showAlert("Input Empty", "alert-danger");
     } else {
         // display the stats
