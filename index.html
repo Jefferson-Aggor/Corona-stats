@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://kit.fontawesome.com/f5eefb86c5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="App.css" />
+    <title>Corona Stats</title>
+</head>
+
+<body>
+    <div class="navbar-fixed ">
+        <nav class="blue">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Corona Stats</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- search countries -->
+
+    <div class="card p-2 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="country" type="text" class="validate" class="capitalize" />
+                    <label for="country">Enter Country</label>
+                </div>
+            </div>
+            <input type="submit" value="Search Country" class="btn btn-block btn-success" id="submit" />
+        </div>
+    </div>
+    <div class="container">
+        <div class="my-2">
+            <div class="loader" style="width: 50px;height: 50px;">
+                <img src="loader.gif" alt="" />
+            </div>
+            <div class="total"></div>
+            <div class="row">
+                <div class="col s12 m6 l6 output"></div>
+                <div class="col s12 m6 l6" style="height: 200;">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
